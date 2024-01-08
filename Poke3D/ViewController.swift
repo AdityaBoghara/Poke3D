@@ -35,7 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             configuration.trackingImages = imageToTrack
             
-            configuration.maximumNumberOfTrackedImages = 1
+            configuration.maximumNumberOfTrackedImages = 2
         }
         // Run the view's session
         sceneView.session.run(configuration)
@@ -69,6 +69,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     if let pokeNode = pokeScene.rootNode.childNodes.first {
                         
                         pokeNode.eulerAngles.x = .pi / 2
+                        
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
+            if imageAnchor.referenceImage.name == "oddish-card" {
+                if let pokeScene = SCNScene(named: "art.scnassets/oddish.scn") {
+                    
+                    if let pokeNode = pokeScene.rootNode.childNodes.first {
+                        
+//                        pokeNode.eulerAngles.x = .pi / 2
                         
                         planeNode.addChildNode(pokeNode)
                     }
