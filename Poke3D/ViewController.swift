@@ -63,6 +63,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
             node.addChildNode(planeNode)
             
+            if imageAnchor.referenceImage.name == "eevee-card" {
+                if let pokeScene = SCNScene(named: "art.scnassets/eevee.scn") {
+                    
+                    if let pokeNode = pokeScene.rootNode.childNodes.first {
+                        
+                        pokeNode.eulerAngles.x = .pi / 2
+                        
+                        planeNode.addChildNode(pokeNode)
+                    }
+                }
+            }
+            
             
         }
         
